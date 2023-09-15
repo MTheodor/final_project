@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/post.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>{{ my_post.title }}</title>
+
+        <style>
+            body {
+                margin: 0;
+                height: 100vh;
+                overflow: hidden;
+                padding-bottom: 2000px;
+            }
+
+            .home{
+                padding-bottom: 2000px;
+            }
+
+            .fyp{
+                padding-bottom: 2000px;
+            }
+
+            .fyp::-webkit-scrollbar {
+                width: 0;
+            }
+
+            .fyp::-webkit-scrollbar-thumb {
+                background-color: transparent;
+            }
+
+            .post {
+                background-color: white;
+                padding: 20px;
+                box-sizing: border-box;
+                margin-bottom: 25px;
+            }
+            
+            .image {
+                display: flex;
+                background-color: black;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+            }
+            
+            .image img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+                vertical-align: middle;
+            }
+
+            .like_btn{
+                border-top: 1px solid rgba(0, 0, 0, 0.2);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .btns {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .likes,
+            .dislikes {
+                padding-left: 10px;
+            }
+            </style>
+    </head>
+    
+    <body>
+        <div class='bar'>
+            <div class="home_btn">
+                <a href='/' style="text-decoration:none; color:  black;">
+                    <span style="font-size:20px;">Talk-Back</span>
+                    <i class="material-icons icon-adjust" style="font-size:24px; vertical-align: bottom; color: red;">live_tv</i>
+                </a>
+            </div>
+            
+            <div class="auth">
+                {% if not user.is_authenticated %}
+                    <div class="authbtn">
+                        <a href="/login" style="color: rgba(0, 0, 0, 0.5)">Log In</a>
+                    </div>
+    
+                    <div class="authbtn">
+                        <a href="/signup" style="color: rgba(0, 0, 0, 0.5)">Sign Up</a>
+                    </div>
+                {% else %}
+                    <div class="authbtn">
+                        <a href="/logout" style="color: rgba(0, 0, 0, 0.5)">Log Out</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    
+        <div class = 'home'>
+                <div class = 'navigation'>
+                    <div class='other-links'>
+                        <p class='nav_btn'>
+                            <a href='/liked' style="color: rgba(0, 0, 0, 0.5)">
+                                <i class="material-icons" style="font-size:18px;">thumb_up_off_alt</i>
+                                <span style="vertical-align: top;">Liked</span>
+                            </a>
+                        </p>
+    
+                        <p class='nav_btn' >
+                            <a href='/create' style="color: rgba(0, 0, 0, 0.5)">
+                                <i class="material-icons" style="font-size:18px">upload</i>
+                                <span style="vertical-align: top;">Create</span>
+                            </a>
+                        </p>
+    
+                        <p class='nav_btn'>
+                            <a href='/settings' style="color: rgba(0, 0, 0, 0.5)">
+                                <i class="material-icons" style="font-size:18px">settings</i>
+                                <span style="vertical-align: top;">Settings</span>
+                            </a>
+                        </p>
+    
+                        <p class='nav_btn'>
+                            <a href='/account' style="color: rgba(0, 0, 0, 0.5)">
+                                <i class="material-icons" style="font-size:18px">account_circle</i>
+                                <span style="vertical-align: top;">Account</span>
+                            </a>
+                        </p>
+    
+                        <p class='nav_btn'>
+                            <a href='/subscriptions' style="color: rgba(0, 0, 0, 0.5)">
+                                <i class="material-icons" style="font-size:18px">subscriptions</i>
+                                <span style="vertical-align: top;">Subscriptions</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+    
+                <div class = 'fyp'>
+                    <div class="post">
+                        <h1>{{ my_post.title }}</h1>
+    
+                        <div class="image">
+                            <img src="{{ my_post.images }}" alt="Post Image">
+                        </div>
+    
+                        <div class="content_text">
+                            <p>
+                                {{my_post.text}}
+                            </p>
+                        </div>
+    
+                        <div class="like_btn">
+                            <div class="subscribe">
+                                <p>By: {{ user_name }}</p>
+                            </div>
+    
+                            <div class="btns">
+                                <div class="likes">
+                                    <i class="material-icons" style="font-size:20px; color: rgba(0, 0, 0, 0.5); vertical-align: top;">thumb_up</i>
+                                    <span>
+                                        {{my_post.likes}}
+                                    </span>
+                                    </div>
+    
+                                <div class="dislikes">
+                                    <i class="material-icons" style="font-size:20px; color: rgba(0, 0, 0, 0.5); vertical-align: top;">thumb_down</i>
+                                    <span>
+                                        {{my_post.dislikes}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

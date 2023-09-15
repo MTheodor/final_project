@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.content {
+    background-color: white;
+    padding: 20px;
+    padding-top: 10%;
+    height: 100vh;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.profile button{
+    margin-left: 40%;
+}
+
+.change_pwd{
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.change_pwd button{
+    margin-left: 27%;
+}
+
+.del_account {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.del_account button{
+    margin-left: 40%;
+}
+
+button {
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 10px;
+}
+
+input {
+    margin-top: 5px;
+}
+
+
+

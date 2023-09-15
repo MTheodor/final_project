@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="../static/home.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class='bar'>
+            <div class="home_btn">
+                <a href='/' style="text-decoration:none; color:  black;">
+                    <span style="font-size:20px;">Talk-Back</span>
+                    <i class="material-icons icon-adjust" style="font-size:24px; vertical-align: bottom; color: red;">live_tv</i>
+                </a>
+            </div>
+            
+            <div class="auth">
+                {% if not user.is_authenticated %}
+                    <div class="authbtn">
+                        <a href="/login" style="color: rgba(0, 0, 0, 0.5)">Log In</a>
+                    </div>
+    
+                    <div class="authbtn">
+                        <a href="/signup" style="color: rgba(0, 0, 0, 0.5)">Sign Up</a>
+                    </div>
+                {% else %}
+                    <div class="authbtn">
+                        <a href="/logout" style="color: rgba(0, 0, 0, 0.5)">Log Out</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class = 'home'>
+            <div class = 'navigation'>
+                <div class='other-links'>
+                    <p class='nav_btn'>
+                        <a href='/liked' style="color: rgba(0, 0, 0, 0.5)">
+                            <i class="material-icons" style="font-size:18px;">thumb_up_off_alt</i>
+                            <span style="vertical-align: top;">Liked</span>
+                        </a>
+                    </p>
+
+                    <p class='nav_btn' >
+                        <a href='/create' style="color: rgba(0, 0, 0, 0.5)">
+                            <i class="material-icons" style="font-size:18px">upload</i>
+                            <span style="vertical-align: top;">Create</span>
+                        </a>
+                    </p>
+
+                    <p class='nav_btn'>
+                        <a href='/settings' style="color: rgba(0, 0, 0, 0.5)">
+                            <i class="material-icons" style="font-size:18px">settings</i>
+                            <span style="vertical-align: top;">Settings</span>
+                        </a>
+                    </p>
+
+                    <p class='nav_btn'>
+                        <a href='/account' style="color: rgba(0, 0, 0, 0.5)">
+                            <i class="material-icons" style="font-size:18px">account_circle</i>
+                            <span style="vertical-align: top;">Account</span>
+                        </a>
+                    </p>
+
+                    <p class='nav_btn'>
+                        <a href='/subscriptions' style="color: rgba(0, 0, 0, 0.5)">
+                            <i class="material-icons" style="font-size:18px">subscriptions</i>
+                            <span style="vertical-align: top;">Subscriptions</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class = 'fyp'>
+                {{ post_links|safe }}
+            </div>
+        </div>
+    </body>
+</html>

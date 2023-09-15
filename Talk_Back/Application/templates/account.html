@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Account Details</title>
+        <link rel="stylesheet" href="../static/account.css">
+    </head>
+
+    <body>
+        <div class='content'>
+            <div class='profile'>
+                <h2>Account</h2>
+                <form method="post" action="/">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="update_profile">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}"><br>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}"><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="{{ user.email }}"><br>
+                    <button class='act_btn' type="submit">Update Profile</button>
+                </form>
+            </div>
+
+            <div class='change_pwd'>
+                <form method="post" action="/">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="change_password">
+                    <label for="id_old_password">Old Password:</label>
+                    <input type="password" id="id_old_password" name="old_password"><br>
+                    <label for="id_new_password1">New Password:</label>
+                    <input type="password" id="id_new_password1" name="new_password1"><br>
+                    <label for="id_new_password2">Confirm New Password:</label>
+                    <input type="password" id="id_new_password2" name="new_password2"><br>
+                    <button class='act_btn' type="submit">Change Password</button>
+                </form>
+            </div>
+        
+            <div class='del_account'>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="delete_account" class='del_btn'>
+                    <div class="delete-btn-container">
+                        <label for="confirm_delete" class="confirm_delete">Check to confirm account deletion:</label>
+                        <input type="checkbox" id="confirm_delete" name="confirm_delete" class="confirm_delete">
+                    </div>
+                    <button class='act_btn' type="submit">Delete Account</button>
+                </form>
+            </div>   
+        </div>
+    </body>
+</html>
